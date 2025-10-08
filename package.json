@@ -9,7 +9,8 @@
     "format:check": "prettier --check .",
     "format:fix": "prettier --write .",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
