@@ -1,21 +1,15 @@
-FROM node:22-alpine as builder
 
-WORKDIR app 
+FROM node:20-alpine
 
-COPY package*.json .
+WORKDIR /app
 
-RUN ["npm","ci","--only=dev"]
+COPY package*.json ./
+RUN npm install
 
 
-FROM node:22-alpine 
-
-WORKDIR /app 
 COPY . .
-COPY --from=builder /app/node_modules . 
+
+
 EXPOSE 3000
-CMD ["npm","start"]
 
-
-
-
-
+CMD ["node", "app.js"]
